@@ -1,0 +1,159 @@
+/* src/Signup.css */
+
+  
+  .signup-container {
+    width: 79%;
+    max-width: 400px;
+    margin: 17px;
+    padding: 20px;
+    background-color: #b8cad4;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+    
+  }
+  
+  .signup-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #094b6e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  button:hover {
+    background-color: #094b6e;
+  }
+  
+  /* Sign In Button */
+  .signin-link {
+    margin-top: 10px;
+  }
+  .signin-link p{
+    text-align: center;
+  }
+  .signin-link button {
+    background-color: #094b6e;
+    color: white;
+  }
+  
+  .signin-link button:hover {
+    background-color: #094b6e;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 480px) {
+    .signup-container {
+      padding: 15px;
+    }
+    input, button {
+      font-size: 14px;
+    }
+  }
+  .modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }
+  .modal h1{
+    text-align: center;
+    color: #094b6e;
+    font-size: large;
+  }
+  .addemployee{
+    margin: 14px;
+  }
+  .addemployee div{
+    display: flex;
+    flex-direction: column;
+  }
+  .addemployee div label{
+    font-family: serif;
+  }
+  .addemployee div input{
+    padding: 9px;
+    outline: none;
+    border-radius: 9px;
+  }
+  #popup-4{
+    border-radius: 14px;
+    background: #fff;
+    width: 317px;
+    padding: 5px;
+    border: 1px solid #d7d7d7;
+  }
+  #popup-3{
+    border-radius: 14px;
+    background: #fff;
+    width: 317px;
+    padding: 5px;
+    border: 1px solid #d7d7d7;
+  }
+  #popup-2{
+    border-radius: 14px;
+    background: #fff;
+    width: 299px;
+    padding: 12px;
+    border: 1px solid #d7d7d7;
+  }
+  #popup-1{
+    border-radius: 14px;
+    background: #fff;
+    width: 299px;
+    padding: 12px;
+    border: 1px solid #d7d7d7;
+  }

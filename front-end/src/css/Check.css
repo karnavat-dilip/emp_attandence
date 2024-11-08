@@ -1,0 +1,157 @@
+.emp-code{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.emp-code h1{
+    font-size: medium;
+    text-align: center;
+}
+.emp-code input{
+    padding: 13px;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    width: 67%;
+    font-size: x-large;
+    background-color: gainsboro;
+}
+.check-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.check-container h1:last-child{
+    font-size: large;
+    text-align: center;
+    margin: 69px;
+    padding: 14px;
+    background-color: aliceblue;
+    border-radius: 5px;
+    color: #094b6e;
+}
+.check-container div:nth-child(2){
+    background-color: aliceblue;
+    margin: 47px;
+    border-radius: 18px;
+    position: relative;
+    padding: 28px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 74%;
+}
+.check-container div:nth-child(2) img{
+    border-radius: 50px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -41px;
+    width: 100px;
+    height: 100px;
+}
+.inputdiv{
+    background-color: white;
+    padding: 12px;
+    border-radius: 4px;
+    align-self: center;
+    display: flex;
+    margin: 10px;
+    /* width: 100%; */
+}
+.inputdiv svg{
+    font-size: x-large;
+    color: burlywood;
+    margin-right: inherit;
+}
+.inputdiv input{
+    border: none;
+    outline: none;
+    font: -webkit-control;
+    background-color: white;
+}
+.inputdiv textarea{
+    border: none;
+    outline: none;
+    font: -webkit-control;
+    resize: none;
+    width: 50vw;
+}
+.inputdiv canvas{
+    border: none;
+    outline: none;
+    font: -webkit-control;
+    width: 50vw;
+    cursor: url('../Assets/pencil-cursor.png') 1 222222,auto;
+}
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.signature-container {
+    display: inline-block;
+    border: 2px solid #000;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#chkin{
+    background-color: #094b6e;
+    border-radius: 7px;
+    border: none;
+    width: 58%;
+    align-self: center;
+    color: white;
+}
+
+nav{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 219px;
+    z-index: 9999;
+    background-color: white;
+    box-shadow: 1px 1px 2px -2px;
+    transition: transform 0.1s cubic-bezier(0.42, 0, 0.09, 0.8) 0.1s;
+}
+nav ul{
+    list-style: none;
+    padding: 0;
+    top: 47px;
+    position: relative;
+}
+nav ul li{
+    margin: 0;
+    text-align: center;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    padding: 12px 17px 12px 39px;
+    text-align: left;
+}
+nav ul li svg{
+    font-size: x-large;
+    margin-right: 19px;
+}
+/* Initially hide the menu */
+.hidden {
+    transform: matrix(1, 0, 0, 1, -220, 0);
+}
+/* @media only screen and (max-width: 2024px) and (min-width: 850px) {
+    .check-container div:nth-child(2) {
+        width: 40%;
+    }
+  } */
