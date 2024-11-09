@@ -10,7 +10,6 @@ import Popup from 'reactjs-popup';
 import { IoIosAddCircle } from "react-icons/io";
 import 'reactjs-popup/dist/index.css';
 import { useCallback } from 'react';
-import 'dotenv/config'
 function Allemployee() {
     const [empdata, setempdata] = useState([])
     const [close, setclose] = useState(false)
@@ -25,11 +24,12 @@ function Allemployee() {
     const [Name, setName] = useState('');
     const token = Cookies.get('token'); // Get the token cookie
     const navigate = useNavigate()
-    console.log(empdata.length, '...');
 
+
+    console.log(empdata,'empdata');
     
-
-   
+    
+    axios.defaults.withCredentials = true;
 
     // Function to handle form submission
     const Updateemployee = useCallback(async (e) => {
@@ -42,7 +42,7 @@ function Allemployee() {
         formData.append('imgprofile', profile);
 
         try {
-            const response = await axios.put(`/updateemployee/${empbyid?.Emp_Id}`, formData, {
+            const response = await axios.put(`${process.env.REACT_APP_URL}/updateemployee/${empbyid?.Emp_Id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -70,7 +70,7 @@ function Allemployee() {
 
     const empdelete = useCallback(async () => {
         try {
-            await axios.delete(`/empdelete/${id}`)
+            await axios.delete(`${process.env.REACT_APP_URL}/empdelete/${id}`)
                 .then(res => console.log(res))
                 .catch(err => console.error(err)
                 )
@@ -107,7 +107,7 @@ function Allemployee() {
         try {
             if (id) {
                 console.log(id);
-                axios.get(`/getempbyid/${id}`, {
+                axios.get(`${process.env.REACT_APP_URL}/getempbyid/${id}`, {
                     headers: {
                         authorization: `${token}`  // Set the token in Authorization header
                     }
@@ -137,12 +137,12 @@ function Allemployee() {
         // if(!token) {
         // return  navigate("/login")
         // }
-        console.log('hllo');
+        console.log(token,'hllo');
         
 
         try {
 
-            axios.get('/empdata', {
+            axios.get(`${process.env.REACT_APP_URL}/empdata`, {
                 headers: {
                     authorization: `${token}`  // Set the token in Authorization header
                 }
@@ -193,7 +193,7 @@ function Allemployee() {
         formData.append('imgprofile', profile);
 
         try {
-            const response = await axios.post('/Addemployee', formData, {
+            const response = await axios.post(`${process.env.REACT_APP_URL}/Addemployee`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -244,7 +244,7 @@ function Allemployee() {
                                 <tr key={index}>
                                     <td>{employee.Emp_Id}</td>
                                     <td>{employee.Emp_Nm}</td>
-                                    <td><img src={employee.Emp_Img} alt="Employee" width="50" /></td>
+                                    <td><img src={`${process.env.REACT_APP_URL}/${employee.Emp_Img}`} alt="Employee" width="50" /></td>
                                     <td><FaEdit onClick={() => openmodal(employee.Emp_Id)} style={{ fontSize: 'x-large', color: 'green', cursor: 'pointer' }} /><MdDelete style={{ fontSize: 'x-large', color: '#de0f0f', cursor: 'pointer' }} onClick={() => openpopup(employee.Emp_Id)} /></td>
                                 </tr>
 

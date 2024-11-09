@@ -18,7 +18,8 @@ function hashData(data) {
 // Middleware to verify token
 function verifyToken(req, res, next) {
     const token = req.headers['authorization']; // Get token from Authorization header
-
+    console.log(req.headers,'tkn');
+    
     if (!token) {
         return res.status(403).json({ message: 'No token provided.' });
     }
@@ -218,7 +219,8 @@ const LogIn = (req, res) => {
 
             const token = jwt.sign({ username }, privateKey, { algorithm: 'RS256', expiresIn: '1h' });
 
-
+            console.log(token);
+            
             res.cookie('token', token)
             return res.status(200).json({ Status: 'Success', token })
 

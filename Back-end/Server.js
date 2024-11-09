@@ -18,13 +18,13 @@ const PORT = process.env.PORT;
 // Middleware to parse JSON bodies
 app.use(express.json());
 // app.use(bodyParser.json());
-app.use(cors(
-  {
-    origin:["https://empattandencefrontend.vercel.app"],
-    methods:["POST","GET","PUT","DELETE"],
-    credentials:true
-  }
-))
+app.use(cors({
+  origin:["http://localhost:3000"],
+  methods:["POST","GET","PUT","DELETE"],
+  credentials:true
+}))
+
+
 app.use('/', express.static('uploads'));
 app.use('/', Router)
 app.use(express.static(path.join(__dirname, '../front-end/build')));

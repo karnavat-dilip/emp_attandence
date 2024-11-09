@@ -55,14 +55,14 @@ function Navigation({setisauthenticated}) {
   const Signout = async () => {
     try {
 
-      const res = await axios.get('/SignOut')
+      const res = await axios.get(`${process.env.REACT_APP_URL}/SignOut`)
         .then(res => json(res))
         .catch(err => console.error(err))
       if (res.ok) {
+        navigate('/login')
         localStorage.setItem('authvalue',false)
         setisauthenticated(JSON.parse(localStorage.getItem('authvalue')))
         toast.success('Logout Successfully!')
-        navigate('/login')
       }
 
     } catch (error) {

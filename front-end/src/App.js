@@ -14,6 +14,7 @@ import ResetPassword from './Components/ResetPassword';
 
 function App() {
   const [isauthenticated, setisauthenticated] = useState(JSON.parse(localStorage.getItem('authvalue')))
+    console.log(isauthenticated,"isauth");
     
   return (
     <react.Fragment>

@@ -27,9 +27,10 @@ function CheckOut() {
   const [isSigned, setIsSigned] = useState(false);
   const clrCanavasRf = useRef()
   const navigate = useNavigate()
+  axios.defaults.withCredentials = true;
   const token = Cookies.get('token'); // Get the token cookie
   useEffect(() => {
-    axios.get('/empdata', {
+    axios.get(`${process.env.REACT_APP_URL}/empdata`, {
       headers: {
         Authorization: `${token}`  // Set the token in Authorization header
       }
@@ -213,7 +214,7 @@ function CheckOut() {
       const dataURL = canvas.current.toDataURL('image/png');
       try {
         if (!matchObj.Emp_Id) return;
-        const response = await axios.post('/CheckOutemployee', {
+        const response = await axios.post(`${process.env.REACT_APP_URL}/CheckOutemployee`, {
           empcode: inputid,
           datetime: date,
           Reason: reason,

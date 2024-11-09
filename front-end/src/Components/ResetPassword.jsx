@@ -31,7 +31,7 @@ function ResetPassword() {
         if (Password == Conpassword) {
             try {
                 if (validationResult === true) {
-                    const res = axios.post('/Forget', { id, Password })
+                    const res = axios.post(`${process.env.REACT_APP_URL}/Forget`, { id, Password })
                     res.then((data) => {
                         toast.success(data.data.message)
                         history('/login')

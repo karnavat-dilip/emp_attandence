@@ -8,9 +8,10 @@ import { toast } from 'react-toastify';
 function Checkouttable() {
     const [employees, setemployees] = useState([])
     const navigate = useNavigate()
+    axios.defaults.withCredentials = true;
     const token = Cookies.get('token'); // Get the token cookie
     useEffect(() => {
-        axios.get('/getcheckout', {
+        axios.get(`${process.env.REACT_APP_URL}/getcheckout`, {
             headers: {
                 Authorization: `${token}`  // Set the token in Authorization header
             }
@@ -57,7 +58,7 @@ function Checkouttable() {
                                 <td>{employee.Emp_Current_Date}</td>
                                 <td>{employee.Emp_Reason}</td>
                                 <td>
-                                    <img src={employee.Emp_Img} alt="Employee" width="50" />
+                                    <img src={`${process.env.REACT_APP_URL}/${employee.Emp_Img}`} alt="Employee" width="50" />
                                 </td>
                                 <td>
                                     <img src={employee.Emp_Signature} alt="Signature" width="100" />

@@ -7,9 +7,8 @@ import { toast } from 'react-toastify'
 import Cookies from 'js-cookie';
 import view from '../Assets/view.png'
 import hide from '../Assets/hide.png'
-import 'dotenv/config'
 const token = Cookies.get('token'); // Get the token cookie
-console.log('Token:', token);
+
 
 function Login({setisauthenticated}) {
 
@@ -17,10 +16,11 @@ function Login({setisauthenticated}) {
     const [password, setpassword] = useState('')
     const history = useNavigate();
 
+
     const HandleSignIn = async (e) => {
 
         try {
-            await axios.post('/SignIn', {
+            await axios.post(`${process.env.REACT_APP_URL}/SignIn`, {
                 username: username,
                 password: password
             }).then((data) => {

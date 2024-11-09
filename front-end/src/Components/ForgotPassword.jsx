@@ -16,7 +16,7 @@ function ForgotPassword() {
         setLoading(true)
 
         try {
-            const res = await axios.post('/Sendmail', { email })
+            const res = await axios.post(`${process.env.REACT_APP_URL}/Sendmail`, { email })
 
             toast.success(res.data.message)
             const chkmail = document.getElementById('chkmail')

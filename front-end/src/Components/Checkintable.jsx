@@ -7,9 +7,10 @@ import { useNavigate } from 'react-router-dom';
 function Checkintable() {
     const [employees, setemployees] = useState([])
     const token = Cookies.get('token'); // Get the token cookie
+    axios.defaults.withCredentials = true;
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get('/getcheckin', {
+        axios.get(`${process.env.REACT_APP_URL}/getcheckin`, {
             headers: {
                 Authorization: `${token}`  // Set the token in Authorization header
             }
@@ -56,7 +57,7 @@ function Checkintable() {
                                 <td>{employee.Emp_Current_Date}</td>
                                 <td>{employee.Emp_Reason}</td>
                                 <td>
-                                    <img src={employee.Emp_Img} alt="Employee" width="50" />
+                                    <img src={`${process.env.REACT_APP_URL}/${employee.Emp_Img}`} alt="Employee" width="50" />
                                 </td>
                                 <td>
                                     <img src={employee.Emp_Signature} alt="Signature" width="100" />

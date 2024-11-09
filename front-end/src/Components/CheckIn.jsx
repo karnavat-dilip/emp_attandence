@@ -29,8 +29,9 @@ function CheckIn() {
   const [errors, setErrors] = useState({});
   const [close, setclose] = useState(false)
   const [employees, setemployees] = useState([])
+  axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('/getcheckin', {
+    axios.get(`${process.env.REACT_APP_URL}/getcheckin`, {
       headers: {
         Authorization: `${token}`  // Set the token in Authorization header
       }
@@ -61,7 +62,7 @@ function CheckIn() {
     // return  navigate("/login")
     // }
 
-    axios.get('/empdata', {
+    axios.get(`${process.env.REACT_APP_URL}/empdata`, {
       headers: {
         authorization: `${token}`  // Set the token in Authorization header
       }
@@ -269,7 +270,7 @@ function CheckIn() {
       const dataURL = canvas.current.toDataURL('image/png');
       try {
         if (!matchObj.Emp_Id) return;
-        const response = await axios.post('/CheckInemployee', {
+        const response = await axios.post(`${process.env.REACT_APP_URL}/CheckInemployee`, {
           empcode: inputid,
           datetime: date,
           Reason: reason,
@@ -334,7 +335,7 @@ function CheckIn() {
       const dataURL = canvas.current.toDataURL('image/png');
       try {
         if (!matchObj.Emp_Id) return;
-        const response = await axios.post('/CheckOutemployee', {
+        const response = await axios.post(`${process.env.REACT_APP_URL}/CheckOutemployee`, {
           empcode: inputid,
           datetime: date,
           Reason: reason,
@@ -411,7 +412,7 @@ function CheckIn() {
         user?.map((user,i) => { */}
 
       {matchObj ? <>{!employee?.Emp_Code ? <div >
-        <img src={matchObj.Emp_Img} width='100' />
+        <img src={`${process.env.REACT_APP_URL}/${matchObj.Emp_Img}`} width='100' />
         <h1 style={{
           fontSize: 'large',
           marginTop: '44px',

@@ -28,6 +28,7 @@ function Signup() {
       [name]: value
     });
   }
+console.log(process.env.REACT_APP_URL,'process.env.REACT_APP_URL');
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
@@ -39,7 +40,7 @@ function Signup() {
     if (formData.password == formData.confirmPassword) {
       try {
         if (validationResult === true) {
-          const response = await axios.post('/Signup', {
+          const response = await axios.post(`${process.env.REACT_APP_URL}/Signup`, {
             id: uuidv4(),
             username: formData.username,
             email: formData.email,
