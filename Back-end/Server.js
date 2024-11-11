@@ -18,11 +18,11 @@ const PORT = process.env.PORT;
 // Middleware to parse JSON bodies
 app.use(express.json());
 // app.use(bodyParser.json());
-app.use(cors({
-  origin:["http://localhost:3000"],
-  methods:["POST","GET","PUT","DELETE"],
-  credentials:true
-}))
+// app.use(cors({
+//   origin:["http://localhost:3000"],
+//   methods:["POST","GET","PUT","DELETE"],
+//   credentials:true
+// }))
 
 
 app.use('/', express.static('uploads'));
